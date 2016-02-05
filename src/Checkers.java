@@ -69,7 +69,7 @@ public class Checkers extends JPanel {
 		board.setBounds(15,15,203,203); 
 		newGameButton.setBounds(220, 60, 200, 30);
 		resignButton.setBounds(220, 100, 200, 30);
-		message.setBounds(102,250, 200, 100);
+		message.setBounds(22,210, 360, 180);
 
 	} 
 
