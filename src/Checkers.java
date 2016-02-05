@@ -443,7 +443,7 @@ public class Checkers extends JPanel {
 				for (int col = 0; col < 8; col++) {
 					
 					if ( row % 2 == col % 2 )
-						g.setColor(Color.GRAY);
+						g.setColor(Color.WHITE);
 					
 					else
 						g.setColor(Color.BLACK);
@@ -463,18 +463,15 @@ public class Checkers extends JPanel {
 						break;
 						
 					case CheckersData.RED_KING:
-						g.setColor(Color.RED);
-						//g.fillOval(4 + col*25, 4 + row*25, 20, 20);
-						g.fillRoundRect(4 + col*25, 4 + row*25, 20, 20, 22, 22); 
+						g.setColor(Color.PINK);
+						g.fillOval(4 + col*25, 4 + row*25, 20, 20);
 						g.setColor(Color.WHITE);
-						//g.drawString("K", 7 + col*20, 16 + row*20);
 						break;
 						
 					case CheckersData.BLACK_KING:
-						g.setColor(Color.BLACK);
-						g.fillOval(4 + col*20, 4 + row*20, 15, 15);
+						g.setColor(Color.GRAY);
+						g.fillOval(4 + col*25, 4 + row*25, 20, 20);
 						g.setColor(Color.WHITE);
-						g.drawString("K", 7 + col*20, 16 + row*20);
 						break;
 					}
 				}
