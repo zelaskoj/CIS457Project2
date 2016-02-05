@@ -20,7 +20,7 @@ public class Checkers extends JPanel {
 	private JButton resignButton;   
 
 	/* Label Used to Display Messages to User */
-	private JLabel message; 
+	private JLabel message;
 	
 	/******************************************************************
 	 * Main routine makes it possible to run Checkers as a stand-alone
@@ -165,7 +165,7 @@ public class Checkers extends JPanel {
 			message = new JLabel("",JLabel.CENTER);
 			
 			message.setFont(new  Font("Times New Roman", 
-					Font.BOLD, 10));
+					Font.BOLD, 18));
 			message.setForeground(Color.black);
 			
 			board = new CheckersData();
@@ -463,14 +463,14 @@ public class Checkers extends JPanel {
 						break;
 						
 					case CheckersData.RED_KING:
-						g.setColor(Color.PINK);
-						g.fillOval(4 + col*25, 4 + row*25, 20, 20);
+						g.setColor(Color.RED);
+						g.drawOval(4 + col*25, 4 + row*25, 20, 20);
 						g.setColor(Color.WHITE);
 						break;
 						
 					case CheckersData.BLACK_KING:
 						g.setColor(Color.GRAY);
-						g.fillOval(4 + col*25, 4 + row*25, 20, 20);
+						g.drawOval(4 + col*25, 4 + row*25, 20, 20);
 						g.setColor(Color.WHITE);
 						break;
 					}
