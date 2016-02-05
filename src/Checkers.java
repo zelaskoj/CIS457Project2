@@ -464,9 +464,10 @@ public class Checkers extends JPanel {
 						
 					case CheckersData.RED_KING:
 						g.setColor(Color.RED);
-						g.fillOval(4 + col*25, 4 + row*25, 20, 20);
+						//g.fillOval(4 + col*25, 4 + row*25, 20, 20);
+						g.fillRoundRect(4 + col*25, 4 + row*25, 20, 20, 22, 22); 
 						g.setColor(Color.WHITE);
-						g.drawString("K", 7 + col*20, 16 + row*20);
+						//g.drawString("K", 7 + col*20, 16 + row*20);
 						break;
 						
 					case CheckersData.BLACK_KING:
