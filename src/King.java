@@ -13,6 +13,8 @@ public class King extends CheckersPiece {
 	
 	//Boolean for whether or not it is in check? 
 	
+	//Boolean for whether or not checkmate? 
+	
 	/******************************************************************
 	 * Creates the King piece with the name "King" and the given color
 	 * 
