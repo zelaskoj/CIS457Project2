@@ -77,6 +77,7 @@ public class King extends CheckersPiece {
 					moves[i][j] = true; 
 				
 				//if it's not, you can't move there 
+				//this line isn't actually need, sooooooooo
 				else 
 					moves[i][j] = false; 
 			}

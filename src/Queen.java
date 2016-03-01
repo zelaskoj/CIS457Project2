@@ -1,5 +1,6 @@
 /***********************************************************************
- * Queen checkers piece. The queen can move in diagonals.
+ * Queen checkers piece. The queen can move in any direction any number
+ * of spaces so long as it is not obstructed by another piece. 
  * 
  * @author Jennifer Moon
  **********************************************************************/
@@ -168,5 +169,4 @@ public class Queen extends CheckersPiece{
 	public int getColor() {
 		return color; 
 	}
-
 }
