@@ -31,6 +31,7 @@ public class King extends CheckersPiece {
 	 * 
 	 * @param row, the row the piece is in 
 	 * @param col, the column the piece is in 
+	 * @param board, the layout of the board 
 	 * @return an array of the possible moves 
 	 ******************************************************************/
 	@Override

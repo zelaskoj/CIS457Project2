@@ -1,23 +1,24 @@
 /***********************************************************************
- * Queen checkers piece. The queen can move in diagonals.
+ * Rook checkers piece. The rook can move in any row or column any 
+ * number of spaces so long as they are not obstructed 
  * 
  * @author Jennifer Moon
  **********************************************************************/
-public class Queen extends CheckersPiece{
+public class Rook extends CheckersPiece {
 
 	/* Piece Type */
-	private String name; 
+	private String name;
 	
 	/* Color of Piece */
-	private int color; 
+	private int color;
 	
 	/******************************************************************
-	 * Creates the queen piece with the name "Queen" and the given color
+	 * Creates the rook piece with the name "Rook" and the given color
 	 * 
 	 * @param the color of the piece 
 	 ******************************************************************/
-	public Queen(int color){
-		name = "Queen"; 
+	public Rook(int color){
+		name = "Rook";
 		this.color = color; 
 	}
 	
@@ -84,67 +85,7 @@ public class Queen extends CheckersPiece{
 			}
 		}
 		
-		//Positive slope, positive direction 
-		i = row + 1; 
-		j = col + 1; 
-		cont = true; 
-		
-		while (i < 8 && j < 8 && cont){
-			if(board[i][j] == null){
-				moves[i][j] = true; 
-				i++;
-				j++; 
-			} else {
-				cont = false; 
-			}
-		}
-		
-		//Positive slope, negative direction 
-		i = row - 1; 
-		j = col - 1; 
-		cont = true;
-		
-		while (i >= 0 && j >= 0 && cont){
-			if(board[i][j] == null){
-				moves[i][j] = true; 
-				i--; 
-				j--; 
-			} else {
-				cont = false; 
-			}
-		}
-		
-		//Negative slope, positive direction 
-		i = row - 1; 
-		j = col + 1; 
-		cont = true;
-		
-		while (i >= 0 && j < 8 && cont){
-			if (board[i][j] == null){
-				moves[i][j] = true; 
-				i--;
-				j++;
-			} else {
-				cont = false; 
-			}
-		}
-		
-		//Negative slope, negative direction 
-		i = row + 1; 
-		j = col - 1; 
-		cont = true;
-		
-		while (i < 8 && j >= 0 && cont){
-			if(board[i][j] == null){
-				moves[i][j] = true; 
-				i++;
-				j--;
-			} else {
-				cont = false; 
-			}
-		}
-		
-		//Currently the queen can only move to empty spaces and 
+		//Currently the rook can only move to empty spaces and 
 		//cannot jump 
 		return moves;
 	}
@@ -168,5 +109,4 @@ public class Queen extends CheckersPiece{
 	public int getColor() {
 		return color; 
 	}
-
 }
