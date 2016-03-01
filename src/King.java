@@ -6,10 +6,10 @@
  **********************************************************************/
 public class King extends CheckersPiece {
 	/* Name of Piece*/
-	String name; 
+	private String name; 
 	
 	/* Color of Piece */
-	int color; 
+	private int color; 
 	
 	//Boolean for whether or not it is in check? 
 	
@@ -57,6 +57,22 @@ public class King extends CheckersPiece {
 				
 				else if (row - 1 == i && col - 1 == j 
 						&& board[i][j] == null) 
+					moves[i][j] = true; 
+				
+				else if (row - 1 == i && col == j 
+						&& board[i][j] == null)
+					moves[i][j] = true; 
+				
+				else if (row + 1 == i && col == j 
+						&& board[i][j] == null)
+					moves[i][j] = true; 
+				
+				else if (row == i && col + 1 == j 
+						&& board[i][j] == null)
+					moves[i][j] = true; 
+				
+				else if (row == i && col - 1 == j 
+						&& board[i][j] == null)
 					moves[i][j] = true; 
 				
 				//if it's not, you can't move there 
