@@ -79,4 +79,19 @@ public class Chess {
 	public void remove(int row, int col){
 		board[row][col] = null;
 	}
+	
+	/*******************************************************************
+	 * Moves the piece at the given position to the other given 
+	 * position. It is assumed that the given move is legal. 
+	 * 
+	 * @param row1, the row to be moved from
+	 * @param col1, the column to be moved from
+	 * @param row2, the row to be moved to
+	 * @param col2, the column to be moved to
+	 ******************************************************************/
+	public void move(int row1, int col1, int row2, int col2){
+		
+		board[row2][col2] = board[row1][col1];
+		remove(row1, col1);
+	}
 }
