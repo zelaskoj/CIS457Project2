@@ -19,7 +19,7 @@ public class Knight extends CheckersPiece{
 	 * @param the color of the piece 
 	 ******************************************************************/
 	public Knight(int color){
-		name = "King"; 
+		name = "Knight"; 
 		this.color = color; 
 	}
 

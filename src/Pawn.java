@@ -37,25 +37,25 @@ public class Pawn extends CheckersPiece{
 		
 		boolean[][] moves = new boolean[8][8];
 		
-		//White piece (moves top down) 
-		if (color == 1){
+		//Black piece (moves bottom up) 
+		if (color == -1){
 			
 			if (row - 1 > 0){
 				
 				if (board[row - 1][col] == null)
-					moves[row-1][col] = true; 
+					moves[row - 1][col] = true; 
 				
 				if (col - 1 >= 0)
 					if (board[row - 1][col - 1] == null)
 						moves[row - 1][col - 1] = true; 
 
 				if (col + 1 < 8)
-					if (board[row - 1][col - 1] == null)
-						moves[row - 1][col - 1] = true; 
+					if (board[row - 1][col + 1] == null)
+						moves[row - 1][col + 1] = true; 
 			}
 			
-		//Black piece (moves bottom up) 
-		} else if (color == -1){
+		//White piece (moves top down)
+		} else if (color == 1){
 			
 			if (row + 1 < 8){
 				
