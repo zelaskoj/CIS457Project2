@@ -56,6 +56,16 @@ public class Chess {
 	}
 	
 	/*******************************************************************
+	 * Returns the board 
+	 * 
+	 * @return the chess board
+	 ******************************************************************/
+	public CheckersPiece[][] getBoard(){
+		return board;
+	}
+	
+	
+	/*******************************************************************
 	 * Returns an array of possible moves given a specific checkers 
 	 * piece 
 	 * 
@@ -66,6 +76,11 @@ public class Chess {
 	public boolean[][] getMoves(int row, int col){
 		
 		CheckersPiece temp = board[row][col];
+		
+		if (temp == null){
+			boolean[][] b = new boolean[8][8];
+			return b;
+		}
 		
 		return temp.getMoves(row, col, board);
 	}
@@ -91,7 +106,10 @@ public class Chess {
 	 ******************************************************************/
 	public void move(int row1, int col1, int row2, int col2){
 		
+		//move to the new position
 		board[row2][col2] = board[row1][col1];
+		
+		//remove from the old position 
 		remove(row1, col1);
 	}
 }

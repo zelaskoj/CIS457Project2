@@ -11,4 +11,6 @@ abstract class CheckersPiece {
 	abstract String getPiece();
 	
 	abstract int getColor();
+	
+	abstract String getName();
 }
