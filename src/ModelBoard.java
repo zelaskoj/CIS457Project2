@@ -14,6 +14,9 @@ public class ModelBoard extends JPanel {
 
 	public JButton[][] board;
 	public Chess chess; 
+	
+	public int lrow; 
+	public int lcolumn; 
 
 	public ModelBoard() {
 		
@@ -36,8 +39,6 @@ public class ModelBoard extends JPanel {
 		
 		add(panel, BorderLayout.CENTER);
 		displayBoard();
-		
-
 	}
 	
 	private void displayBoard() {
@@ -47,6 +48,8 @@ public class ModelBoard extends JPanel {
 			for (int j = 0; j < 8; j++)
 				if (temp[i][j] != null)
 					board[i][j].setText(temp[i][j].getName());
+				else 
+					board[i][j].setText("");
 	}
 	
 	private void setAvailable(boolean[][] spots) {
@@ -59,15 +62,30 @@ public class ModelBoard extends JPanel {
 				}
 			}
 	}
+	
+	private void setRegColor(){
+		for (int i = 0; i < 8; i ++)
+			for (int j = 0; j < 8; j++)
+				board[i][j].setBackground(Color.GRAY);
+	}
 
 	private class ButtonListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 
 			for (int i = 0; i < 8; i++) 
-				for (int j = 0; j < 8; j++) 
-					if (board[i][j] == e.getSource()) 
-						setAvailable(chess.getMoves(i, j));
+				for (int j = 0; j < 8; j++) {
+					if (board[i][j] == e.getSource()) {
+						if (board[i][j].getBackground() != Color.GREEN){
+							setAvailable(chess.getMoves(i, j));
+							lrow = i; 
+							lcolumn = j;
+						} else {
+							chess.move(lrow, lcolumn, i, j);
+							setRegColor();
+						}	
+					}
+				}
 
 			displayBoard();
 		}

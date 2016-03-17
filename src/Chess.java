@@ -8,6 +8,15 @@ public class Chess {
 	/** Chess Board **/
 	private CheckersPiece[][] board; 
 	
+	/** Row of Selected Piece **/
+	int row; 
+	
+	/** Column of Selected Piece **/
+	int col; 
+	
+	/** Current Possible Moves **/
+	boolean[][] possible; 
+	
 	//White = 1, top
 	//Black = -1, bottom
 	
@@ -82,7 +91,11 @@ public class Chess {
 			return b;
 		}
 		
-		return temp.getMoves(row, col, board);
+		this.row = row; 
+		this.col = col; 
+		possible = temp.getMoves(row, col, board);
+		
+		return possible;
 	}
 	
 	/*******************************************************************
