@@ -5,6 +5,9 @@
  * @author Jennifer Moon
  **********************************************************************/
 public class Bishop extends CheckersPiece{
+	
+	//READ ME: The bishop can now capture! 
+	
 	/* Piece Type */
 	private String name; 
 	
@@ -44,11 +47,15 @@ public class Bishop extends CheckersPiece{
 		cont = true; 
 		
 		while (i < 8 && j < 8 && cont){
+			
 			if(board[i][j] == null){
 				moves[i][j] = true; 
 				i++;
 				j++; 
+				
 			} else {
+				if (board[i][j].getColor() == - color)
+					moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -62,8 +69,11 @@ public class Bishop extends CheckersPiece{
 			if(board[i][j] == null){
 				moves[i][j] = true; 
 				i--; 
-				j--; 
+				j--;
+				
 			} else {
+				if (board[i][j].getColor() == - color)
+					moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -78,7 +88,10 @@ public class Bishop extends CheckersPiece{
 				moves[i][j] = true; 
 				i--;
 				j++;
+
 			} else {
+				if (board[i][j].getColor() == - color)
+					moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -93,13 +106,14 @@ public class Bishop extends CheckersPiece{
 				moves[i][j] = true; 
 				i++;
 				j--;
+
 			} else {
+				if (board[i][j].getColor() == - color)
+					moves[i][j] = true; 
 				cont = false; 
 			}
 		}
 		
-		//Currently the bishop can only move to empty spaces and 
-		//cannot jump 
 		return moves;
 	}
 

@@ -7,9 +7,7 @@
  **********************************************************************/
 public class Pawn extends CheckersPiece{
 	
-	//READ ME: Right now the pawn can move in any forward direction, 
-	//         whereas it needs to be changed so that it can only 
-	//         move forward diagonally if it is capturing 
+	//READ ME: The pawn can now capture! 
 	
 	/* Piece Type */
 	private String name; 
@@ -80,7 +78,6 @@ public class Pawn extends CheckersPiece{
 			}
 		}
 		
-		//Currently the pawn can only move to empty spaces 
 		return moves;
 	}
 
