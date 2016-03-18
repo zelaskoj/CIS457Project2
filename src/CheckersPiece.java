@@ -2,6 +2,7 @@
  * Abstract class with methods that each piece will need
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 abstract class CheckersPiece {
 	

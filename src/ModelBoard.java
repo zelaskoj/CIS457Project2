@@ -8,17 +8,28 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /***********************************************************************
- * Temporary board used to check piece movement
- *
+ * Chess board panel 
+ * 
+ * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class ModelBoard extends JPanel {
 
+	/** The Chess Board **/
 	public JButton[][] board;
+	
+	/** The Chess Game **/
 	public Chess chess; 
 	
+	/** The Last Row Selected **/
 	public int lrow; 
+	
+	/** The Last Column Selected **/
 	public int lcolumn; 
 
+	/*******************************************************************
+	 * Constructor to create the board 
+	 ******************************************************************/
 	public ModelBoard() {
 		
 		//create the board 
@@ -44,6 +55,9 @@ public class ModelBoard extends JPanel {
 		setRegColor();
 	}
 	
+	/*******************************************************************
+	 * Displays the location of the pieces 
+	 ******************************************************************/
 	private void displayBoard() {
 		CheckersPiece[][] temp = chess.getBoard();
 		
@@ -55,18 +69,22 @@ public class ModelBoard extends JPanel {
 					board[i][j].setText("");
 	}
 	
+	/*******************************************************************
+	 * Displays the possible moves of the selected piece 
+	 * 
+	 * @param spots, the possible spots to move to 
+	 ******************************************************************/
 	private void setAvailable(boolean[][] spots) {
 		setRegColor();
 		for (int i = 0; i < 8; i ++)
-			for (int j = 0; j < 8; j++) {
-				if (spots [i][j] == true) {
+			for (int j = 0; j < 8; j++) 
+				if (spots [i][j] == true) 
 					board[i][j].setBackground(Color.GREEN);
-				} /*else {
-					board[i][j].setBackground(Color.RED);
-				}*/
-			}
 	}
 	
+	/*******************************************************************
+	 * Displays the board's regular colors (black and white) 
+	 ******************************************************************/
 	private void setRegColor(){
 		
 		for (int j = 0; j < 8; j = j + 2)
@@ -86,17 +104,29 @@ public class ModelBoard extends JPanel {
 			}
 	}
 
+	/*******************************************************************
+	 * Action Listener that handles what button has been pressed 
+	 ******************************************************************/
 	private class ButtonListener implements ActionListener {
 
+		/***************************************************************
+		 * Processes what button has been pressed 
+		 * 
+		 * @param e, the ActionEvent performed 
+		 **************************************************************/
 		public void actionPerformed(ActionEvent e) {
 
 			for (int i = 0; i < 8; i++) 
+				
 				for (int j = 0; j < 8; j++) {
+					
 					if (board[i][j] == e.getSource()) {
+						
 						if (board[i][j].getBackground() != Color.GREEN){
 							setAvailable(chess.getMoves(i, j));
 							lrow = i; 
 							lcolumn = j;
+							
 						} else {
 							chess.move(lrow, lcolumn, i, j);
 							setRegColor();

@@ -2,6 +2,7 @@
  * Chess controller class
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class Chess {
 	
@@ -17,6 +18,9 @@ public class Chess {
 	/** Current Possible Moves **/
 	boolean[][] possible; 
 	
+	/** Turn Count **/
+	int turnCount; 
+	
 	//White = 1, top
 	//Black = -1, bottom
 	
@@ -25,6 +29,7 @@ public class Chess {
 	 * in the starting position 
 	 ******************************************************************/
 	public Chess(){
+		turnCount = 0; 
 		board = new CheckersPiece[8][8];
 		
 		board[0][0] = new Rook(1);
@@ -73,6 +78,33 @@ public class Chess {
 		return board;
 	}
 	
+	/*******************************************************************
+	 * Returns the current player 
+	 * 
+	 * @return an integer representing the current player
+	 ******************************************************************/
+	public int getPlayer() {
+		if (turnCount % 2 == 0)
+			return -1; 
+		else
+			return 1; 
+	}
+	
+	/*******************************************************************
+	 * Returns the color of the piece at a given location, returns 0 
+	 * if there is not a piece at the given location 
+	 * 
+	 * @return an integer representing the color of the player at a 
+	 *         given position 
+	 * @param row, the row the piece is in 
+	 * @param col, the column the piece is in 
+	 ******************************************************************/
+	public int getColorAt(int r, int c) {
+		if (board[r][c] == null)
+			return 0; 
+		
+		return board[r][c].getColor();
+	}
 	
 	/*******************************************************************
 	 * Returns an array of possible moves given a specific checkers 
@@ -83,6 +115,13 @@ public class Chess {
 	 * @return boolean array of possible places a piece can move 
 	 ******************************************************************/
 	public boolean[][] getMoves(int row, int col){
+		
+		//Checks to see if the current player can move the given piece 
+		if (board[row][col] != null)
+			if (board[row][col].getColor() != getPlayer()){
+				possible = new boolean[8][8];  
+				return possible; 
+			}
 		
 		CheckersPiece temp = board[row][col];
 		
@@ -124,5 +163,8 @@ public class Chess {
 		
 		//remove from the old position 
 		remove(row1, col1);
+		
+		//increments the turn count
+		turnCount++;
 	}
 }

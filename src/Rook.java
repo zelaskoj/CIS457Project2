@@ -3,6 +3,7 @@
  * number of spaces so long as they are not obstructed 
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class Rook extends CheckersPiece {
 

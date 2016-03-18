@@ -3,6 +3,7 @@
  * however, it cannot move into check or adjacent to the other King. 
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class King extends CheckersPiece {
 	

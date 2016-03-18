@@ -3,6 +3,7 @@
  * of spaces so long as it is not obstructed by another piece. 
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class Queen extends CheckersPiece{
 

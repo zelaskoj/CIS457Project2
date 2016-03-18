@@ -4,6 +4,7 @@
  * first turn 
  * 
  * @author Jennifer Moon
+ * @version V2
  **********************************************************************/
 public class Pawn extends CheckersPiece{
 	

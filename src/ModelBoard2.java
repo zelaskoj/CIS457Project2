@@ -1,5 +1,11 @@
 import javax.swing.JFrame;
 
+/***********************************************************************
+ * Main GUI for the Checker's Game
+ * 
+ * @author Jennifer Moon
+ * @version V2
+ **********************************************************************/
 public class ModelBoard2 {
 
 	public static void main (String[] args){
