@@ -7,6 +7,10 @@
  **********************************************************************/
 public class Pawn extends CheckersPiece{
 	
+	//READ ME: Right now the pawn can move in any forward direction, 
+	//         whereas it needs to be changed so that it can only 
+	//         move forward diagonally if it is capturing 
+	
 	/* Piece Type */
 	private String name; 
 	
@@ -46,12 +50,16 @@ public class Pawn extends CheckersPiece{
 					moves[row - 1][col] = true; 
 				
 				if (col - 1 >= 0)
-					if (board[row - 1][col - 1] == null)
-						moves[row - 1][col - 1] = true; 
+					if (board[row - 1][col - 1] != null)
+						if (board[row - 1][col - 1].getColor() == 
+								-color)
+							moves[row - 1][col - 1] = true; 
 
 				if (col + 1 < 8)
-					if (board[row - 1][col + 1] == null)
-						moves[row - 1][col + 1] = true; 
+					if (board[row - 1][col + 1] != null)
+						if (board[row - 1][col + 1].getColor() == 
+								-color)
+							moves[row - 1][col + 1] = true; 
 			}
 			
 		//White piece (moves top down)
