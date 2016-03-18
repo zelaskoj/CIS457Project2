@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +23,7 @@ public class ModelBoard extends JPanel {
 		
 		//create the board 
 		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(8,8,3,2));
+		panel.setLayout(new GridLayout(8,8,5,5));
 		
 		chess = new Chess();
 		board = new JButton[8][8];
@@ -31,6 +32,7 @@ public class ModelBoard extends JPanel {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				board[i][j] = new JButton("");
+				board[i][j].setPreferredSize(new Dimension(90, 90));
 				board[i][j].addActionListener(listener);
 				panel.add(board[i][j]);
 
@@ -39,6 +41,7 @@ public class ModelBoard extends JPanel {
 		
 		add(panel, BorderLayout.CENTER);
 		displayBoard();
+		setRegColor();
 	}
 	
 	private void displayBoard() {
@@ -53,20 +56,34 @@ public class ModelBoard extends JPanel {
 	}
 	
 	private void setAvailable(boolean[][] spots) {
+		setRegColor();
 		for (int i = 0; i < 8; i ++)
 			for (int j = 0; j < 8; j++) {
 				if (spots [i][j] == true) {
 					board[i][j].setBackground(Color.GREEN);
-				} else {
+				} /*else {
 					board[i][j].setBackground(Color.RED);
-				}
+				}*/
 			}
 	}
 	
 	private void setRegColor(){
-		for (int i = 0; i < 8; i ++)
-			for (int j = 0; j < 8; j++)
-				board[i][j].setBackground(Color.GRAY);
+		
+		for (int j = 0; j < 8; j = j + 2)
+			for (int i = 0; i < 8; i ++){
+				if (i % 2 == 0)
+					board[i][j].setBackground(Color.GRAY);
+				else 
+					board[i][j].setBackground(Color.WHITE);
+			}
+		
+		for (int j = 1; j < 8; j = j + 2)
+			for (int i = 0; i < 8; i ++){
+				if (i % 2 == 1)
+					board[i][j].setBackground(Color.GRAY);
+				else 
+					board[i][j].setBackground(Color.WHITE);
+			}
 	}
 
 	private class ButtonListener implements ActionListener {

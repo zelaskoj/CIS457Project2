@@ -8,6 +8,6 @@ public class ModelBoard2 {
 		ModelBoard model = new ModelBoard();
 		frame.getContentPane().add(model);
 		frame.setVisible(true);
-		frame.setSize(700, 300);
+		frame.setSize(780, 805);
 	}
 }
