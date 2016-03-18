@@ -42,35 +42,43 @@ public class Knight extends CheckersPiece{
 			for (int j = 0; j < 8; j++){
 				
 				if (i == row + 1 && j == col + 2 
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if (i == row + 1 && j == col - 2
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if (i == row + 2 && j == col + 1
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if (i == row + 2 && j == col - 1
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if(i == row - 1 && j == col + 2
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if(i == row - 1 && j == col - 2
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if (i == row - 2 && j == col - 1
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 				
 				if (i == row - 2 && j == col + 1
-						&& board[i][j] == null)
+						&& (board[i][j] == null
+						|| board[i][j].getColor() == -color))
 					moves[i][j] = true; 
 			}
 		}

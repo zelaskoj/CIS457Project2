@@ -5,6 +5,9 @@
  * @author Jennifer Moon
  **********************************************************************/
 public class King extends CheckersPiece {
+	
+	//READ ME: The king can now capture! 
+	
 	/* Name of Piece*/
 	private String name; 
 	
@@ -45,35 +48,44 @@ public class King extends CheckersPiece {
 			for (int j = 0; j < 8; j++){
 				
 				//...check to see if it is next to the King and empty
-				if (row + 1 == i && col + 1 == j && board[i][j] == null) 
+				if (row + 1 == i && col + 1 == j 
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row + 1 == i && col - 1 == j 
-						&& board[i][j] == null) 
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row - 1 == i && col + 1 == j 
-						&& board[i][j] == null) 
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row - 1 == i && col - 1 == j 
-						&& board[i][j] == null) 
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row - 1 == i && col == j 
-						&& board[i][j] == null)
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row + 1 == i && col == j 
-						&& board[i][j] == null)
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row == i && col + 1 == j 
-						&& board[i][j] == null)
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				else if (row == i && col - 1 == j 
-						&& board[i][j] == null)
+						&& (board[i][j] == null || 
+						board[i][j].getColor() == -color)) 
 					moves[i][j] = true; 
 				
 				//if it's not, you can't move there 
@@ -83,7 +95,6 @@ public class King extends CheckersPiece {
 			}
 		}
 		
-		//Currently the king can only move to empty spaces
 		return moves;
 	}
 

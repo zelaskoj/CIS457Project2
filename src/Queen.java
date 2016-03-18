@@ -40,11 +40,16 @@ public class Queen extends CheckersPiece{
 		
 		//Same column, positive direction 
 		int i = row + 1; 
+		
 		while (i < 8 && cont){
+			
 			if (board[i][col] == null) {
 				moves[i][col] = true; 
 				i++;
+				
 			} else {
+				if (board[i][col].getColor() == - color)
+					moves[i][col] = true; 
 				cont = false; 
 			}
 		}
@@ -52,11 +57,16 @@ public class Queen extends CheckersPiece{
 		//Same column, negative direction 
 		i = row - 1; 
 		cont = true; 
+		
 		while (i >= 0 && cont){
+			
 			if (board[i][col] == null) {
 				moves[i][col] = true; 
 				i--;
+				
 			} else {
+				if (board[i][col].getColor() == - color)
+					moves[i][col] = true; 
 				cont = false; 
 			}
 		}
@@ -64,11 +74,17 @@ public class Queen extends CheckersPiece{
 		//Same row, positive direction 
 		int j = col + 1; 
 		cont = true; 
+		
 		while (j < 8 && cont){
+			
 			if (board[row][j] == null) {
 				moves[row][j] = true; 
 				j++;
+				
 			} else {
+				if (board[row][j] != null)
+					if (board[row][j].getColor() == - color)
+						moves[row][j] = true; 
 				cont = false; 
 			}
 		}
@@ -76,11 +92,17 @@ public class Queen extends CheckersPiece{
 		//Same row, negative direction 
 		j = col - 1; 
 		cont = true; 
+		
 		while (j >= 0 && cont){
+			
 			if (board[row][j] == null) {
 				moves[row][j] = true; 
 				j--;
+				
 			} else {
+				if (board[row][j] != null)
+					if (board[row][j].getColor() == - color)
+						moves[row][j] = true; 
 				cont = false; 
 			}
 		}
@@ -91,11 +113,16 @@ public class Queen extends CheckersPiece{
 		cont = true; 
 		
 		while (i < 8 && j < 8 && cont){
+			
 			if(board[i][j] == null){
 				moves[i][j] = true; 
 				i++;
-				j++; 
+				j++;
+				
 			} else {
+				if (board[i][j] != null)
+					if (board[i][j].getColor() == - color)
+						moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -106,11 +133,16 @@ public class Queen extends CheckersPiece{
 		cont = true;
 		
 		while (i >= 0 && j >= 0 && cont){
+			
 			if(board[i][j] == null){
 				moves[i][j] = true; 
 				i--; 
-				j--; 
+				j--;
+				
 			} else {
+				if (board[i][j] != null)
+					if (board[i][j].getColor() == - color)
+						moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -121,11 +153,16 @@ public class Queen extends CheckersPiece{
 		cont = true;
 		
 		while (i >= 0 && j < 8 && cont){
+			
 			if (board[i][j] == null){
 				moves[i][j] = true; 
 				i--;
 				j++;
+				
 			} else {
+				if (board[i][j] != null)
+					if (board[i][j].getColor() == - color)
+						moves[i][j] = true; 
 				cont = false; 
 			}
 		}
@@ -136,11 +173,16 @@ public class Queen extends CheckersPiece{
 		cont = true;
 		
 		while (i < 8 && j >= 0 && cont){
+			
 			if(board[i][j] == null){
 				moves[i][j] = true; 
 				i++;
 				j--;
+				
 			} else {
+				if (board[i][j] != null)
+					if (board[i][j].getColor() == - color)
+						moves[i][j] = true; 
 				cont = false; 
 			}
 		}

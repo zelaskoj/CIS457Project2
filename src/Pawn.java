@@ -44,20 +44,21 @@ public class Pawn extends CheckersPiece{
 			
 			if (row - 1 > 0){
 				
+				//Cannot capture
 				if (board[row - 1][col] == null)
 					moves[row - 1][col] = true; 
 				
+				//Can only move this way if capturing
 				if (col - 1 >= 0)
-					if (board[row - 1][col - 1] != null)
-						if (board[row - 1][col - 1].getColor() == 
-								-color)
-							moves[row - 1][col - 1] = true; 
+					if (board[row-1][col-1] != null)
+						if (board[row-1][col-1].getColor() == -color)
+							moves[row-1][col-1] = true; 
 
+				//Can only move this way if capturing
 				if (col + 1 < 8)
-					if (board[row - 1][col + 1] != null)
-						if (board[row - 1][col + 1].getColor() == 
-								-color)
-							moves[row - 1][col + 1] = true; 
+					if (board[row-1][col+1] != null)
+						if (board[row-1][col+1].getColor() == -color)
+						moves[row-1][col+1] = true; 
 			}
 			
 		//White piece (moves top down)
@@ -65,16 +66,21 @@ public class Pawn extends CheckersPiece{
 			
 			if (row + 1 < 8){
 				
-				if (board[row + 1][col] == null)
-					moves[row + 1][col] = true; 
+				//Cannot capture 
+				if (board[row+1][col] == null)	
+					moves[row+1][col] = true; 
 				
+				//Can only move this way if capturing 
 				if (col - 1 >= 0)
-					if (board[row + 1][col - 1] == null)
-						moves[row + 1][col - 1] = true; 
+					if (board[row+1][col-1] != null)
+						if (board[row+1][col-1].getColor() == -color)
+							moves[row+1][col-1] = true; 
 
+				//Can only move this way if capturing
 				if (col + 1 < 8)
-					if (board[row + 1][col + 1] == null)
-						moves[row + 1][col + 1] = true; 
+					if (board[row+1][col+1] != null)
+						if (board[row+1][col+1].getColor() == -color)
+							moves[row+1][col+1] = true; 
 			}
 		}
 		
