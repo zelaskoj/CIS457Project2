@@ -40,11 +40,16 @@ public class Rook extends CheckersPiece {
 		
 		//Same column, positive direction 
 		int i = row + 1; 
+		
 		while (i < 8 && cont){
+			
 			if (board[i][col] == null) {
 				moves[i][col] = true; 
 				i++;
+				
 			} else {
+				if (board[i][col].getColor() == -color)
+					moves[i][col] = true; 
 				cont = false; 
 			}
 		}
@@ -52,11 +57,16 @@ public class Rook extends CheckersPiece {
 		//Same column, negative direction 
 		i = row - 1; 
 		cont = true; 
+		
 		while (i >= 0 && cont){
+			
 			if (board[i][col] == null) {
 				moves[i][col] = true; 
 				i--;
+				
 			} else {
+				if (board[i][col].getColor() == -color)
+					moves[i][col] = true; 
 				cont = false; 
 			}
 		}
@@ -64,11 +74,16 @@ public class Rook extends CheckersPiece {
 		//Same row, positive direction 
 		int j = col + 1; 
 		cont = true; 
+		
 		while (j < 8 && cont){
+			
 			if (board[row][j] == null) {
 				moves[row][j] = true; 
 				j++;
+				
 			} else {
+				if (board[row][j].getColor() == -color)
+					moves[row][j] = true; 
 				cont = false; 
 			}
 		}
@@ -76,17 +91,20 @@ public class Rook extends CheckersPiece {
 		//Same row, negative direction 
 		j = col - 1; 
 		cont = true; 
+		
 		while (j >= 0 && cont){
+			
 			if (board[row][j] == null) {
 				moves[row][j] = true; 
 				j--;
+				
 			} else {
+				if (board[row][j].getColor() == -color)
+					moves[row][j] = true; 
 				cont = false; 
 			}
 		}
-		
-		//Currently the rook can only move to empty spaces and 
-		//cannot jump 
+	
 		return moves;
 	}
 
