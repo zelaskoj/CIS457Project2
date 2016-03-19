@@ -83,6 +83,18 @@ public class ModelBoard extends JPanel {
 	}
 	
 	/*******************************************************************
+	 * Disables or enables all pieces of the board 
+	 * 
+	 * @param b whether or not the buttons should be enabled or not 
+	 ******************************************************************/
+	public void disableBoard(boolean b){
+		for (int i = 0; i < 8; i++)
+			for (int j = 0; j < 8; j ++)
+				board[i][j].setEnabled(b);
+					
+	}
+	
+	/*******************************************************************
 	 * Displays the board's regular colors (black and white) 
 	 ******************************************************************/
 	private void setRegColor(){

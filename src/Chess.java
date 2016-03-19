@@ -35,8 +35,8 @@ public class Chess {
 		board[0][0] = new Rook(1);
 		board[0][1] = new Knight(1);
 		board[0][2] = new Bishop(1);
-		board[0][3] = new Queen(1);
-		board[0][4] = new King(1);
+		board[0][3] = new King(1);
+		board[0][4] = new Queen(1);
 		board[0][5] = new Bishop(1);
 		board[0][6] = new Knight(1);
 		board[0][7] = new Rook(1);
